@@ -1,6 +1,6 @@
 <?php
 	define("TITULO", "CADASTRO DE PRODUTOS");
-	//include "nav.php";
+	include "nav.php";
 	include "cabecalho.php";
 	include_once "conn/conexao.php";
 	include "organizador.php";
