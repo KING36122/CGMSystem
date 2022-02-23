@@ -66,4 +66,51 @@ function excluirCustoExtra($conexao, $idce){
 	$query = mysqli_query($conexao, "DELETE FROM custo_extra  WHERE IdCE = '{$idce}'");
 	return $query;
 }
+//Inicio das funções da caracteristica_produto
+function cadastrarCaracProd($conexao, $idProduto, $valor_bruto, $valor_vendido, $quantidade, $tamanho, $modelo){
+	$query = mysqli_query($conexao, "INSERT INTO  (IdProduto, Valor_Bruto, Valor_Vendido, Quantidade,Tamanho, Modelo) VALUES 	('$idProduto','$valor_bruto', '$valor_vendido','$quantidade', $tamanho,'$modelo')");
+	return $query;
+}
+function listarCaracProd($conexao){
+	$query = mysqli_query($conexao, "SELECT * FROM caracteristica_produto");
+	while($linha = mysqli_fetch_assoc($query)){
+		$caracteristica_produto[] = $linha;
+	}
+	return $caracteristica_produto;
+}
+
+function alterarCaracProd($conexao, $idProduto, $valor_bruto, $valor_vendido, $quantidade, $tamanho, $modelo,$idcp){
+	$query = mysqli_query($conexao, "UPDATE caracteristica_produto SET IdProduto='{$idProduto}', Valor_Bruto='{$valor_bruto}', Valor_Vendido='{$valor_vendido}',Quantidade='{$quantidade}', Tamanho='{$tamanho}', Modelo='{$modelo}' WHERE IdCP = '{$idcp}'");
+	return $query;
+}
+
+function excluirCaracProd($conexao, $idcp){
+	$query = mysqli_query($conexao, "DELETE FROM caracteristica_produto  WHERE IdCP = '{$idcp}'");
+	return $query;
+}
+// fim das funcões Caracteristicas_Produto
+
+// Inicio das funções do cliente
+function cadastrarCliente($conexao, $nome){
+	$query = mysqli_query($conexao, "INSERT INTO  (Nome) VALUES 	('$nome')");
+	return $query;
+}
+function listarCliente($conexao){
+	$query = mysqli_query($conexao, "SELECT * FROM cliente");
+	while($linha = mysqli_fetch_assoc($query)){
+		$cliente[] = $linha;
+	}
+	return $cliente;
+}
+
+function alterarCliente($conexao, $nome){
+	$query = mysqli_query($conexao, "UPDATE cliente SET Nome='{$nome}' WHERE IdCliente = '{$idCliente}'");
+	return $query;
+}
+
+function excluirCliente($conexao, $idCliente){
+	$query = mysqli_query($conexao, "DELETE FROM cliente  WHERE idCliente = '{$idCliente}'");
+	return $query;
+}
+//fim das funções do cliente
 ?>
