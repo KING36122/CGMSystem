@@ -1,3 +1,5 @@
+<?php
+
 function cadastrarFornecedor($conexao, $nome, $descricao){
 	$query = mysqli_query($conexao, "INSERT INTO  (Nome, Descricao) VALUES 	('$nome', '$descricao')");
 	return $query;
@@ -64,3 +66,4 @@ function excluirCustoExtra($conexao, $idce){
 	$query = mysqli_query($conexao, "DELETE FROM custo_extra  WHERE IdCE = '{$idce}'");
 	return $query;
 }
+?>
