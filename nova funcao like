@@ -1,0 +1,7 @@
+function listarProdutoLike($conexao,$pesquisa){
+    $query = mysqli_query($conexao,"SELECT * FROM produto WHERE Nome LIKE '%$pesquisa%'");
+    while($linha = mysqli_fetch_assoc($query)){
+        $produtos[] = $linha;
+    }
+    return $produtos;
+}
